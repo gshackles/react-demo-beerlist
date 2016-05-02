@@ -14,6 +14,7 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import rimraf from 'rimraf';
 import browserSync, { reload } from 'browser-sync';
+import { Server } from 'karma';
 
 const paths = {
   bundle: 'app.js',
@@ -79,6 +80,13 @@ gulp.task('lint', () => {
   gulp.src(paths.srcLint)
     .pipe(eslint())
     .pipe(eslint.format());
+});
+
+gulp.task('test', (done) => {
+  new Server({
+    configFile: `${__dirname}/karma.conf.js`,
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('styles', () => {

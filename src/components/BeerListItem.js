@@ -2,15 +2,15 @@ import React from 'react';
 
 const BeerListItem = (props) => (
   <li>
-    <h2>{props.beer.name}</h2>
+    <h2 className="name">{props.beer.name}</h2>
     
-    <em>
+    <em className="breweries">
       {(props.beer.breweries || []).map(brewery => brewery.name).join(', ')}
     </em>
     
-    <br /><br />
-    
-    {props.beer.abv || 'Unknown'}%
+    <p className="abv">
+      {props.beer.abv || 'Unknown'}%
+    </p>
   </li>
 );
 
