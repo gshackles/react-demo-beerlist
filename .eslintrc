@@ -1,0 +1,7 @@
+{
+  "extends": "olo/react",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": 0
+  }
+}
